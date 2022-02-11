@@ -17,7 +17,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+  String? _platformVersion = 'Unknown';
   String _messageToUser = '';
 
   @override
@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
-    String platformVersion = '';
+    String? platformVersion = '';
     String messageToUser = '';
 
     // Platform messages may fail, so we use a try/catch PlatformException.
