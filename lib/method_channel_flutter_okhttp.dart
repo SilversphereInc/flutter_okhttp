@@ -44,7 +44,8 @@ class MethodChannelFlutterOkHttp implements FlutterOkHttpPlatform {
 
   @override
   Future<OkHttpResponse> get(OkHttpRequest request) async {
-    final Map<dynamic, dynamic> result = await (_channel.invokeMethod('GET', request.toMap()) as FutureOr<Map<dynamic, dynamic>>);
+    final Map<dynamic, dynamic> result =
+        await (_channel.invokeMethod('GET', request.toMap()));
 
     return OkHttpResponse(
       code: result['code'],
@@ -56,7 +57,8 @@ class MethodChannelFlutterOkHttp implements FlutterOkHttpPlatform {
 
   @override
   Future<OkHttpResponse> post(OkHttpRequestWithPayload request) async {
-    final Map<dynamic, dynamic> result = await (_channel.invokeMethod('POST', request.toMap()) as FutureOr<Map<dynamic, dynamic>>);
+    final Map<dynamic, dynamic> result =
+        await (_channel.invokeMethod('POST', request.toMap()));
 
     return OkHttpResponse(
       code: result['code'],
@@ -68,7 +70,8 @@ class MethodChannelFlutterOkHttp implements FlutterOkHttpPlatform {
 
   @override
   Future<OkHttpResponse> delete(OkHttpRequest request) async {
-    final Map<dynamic, dynamic> result = await (_channel.invokeMethod('DEL', request.toMap()) as FutureOr<Map<dynamic, dynamic>>);
+    final Map<dynamic, dynamic> result = await (_channel.invokeMethod(
+        'DEL', request.toMap()) as FutureOr<Map<dynamic, dynamic>>);
 
     return OkHttpResponse(
       code: result['code'],
@@ -80,7 +83,8 @@ class MethodChannelFlutterOkHttp implements FlutterOkHttpPlatform {
 
   @override
   Future<OkHttpResponse> patch(OkHttpRequestWithPayload request) async {
-    final Map<dynamic, dynamic> result = await (_channel.invokeMethod('PATCH', request.toMap()) as FutureOr<Map<dynamic, dynamic>>);
+    final Map<dynamic, dynamic> result = await (_channel.invokeMethod(
+        'PATCH', request.toMap()) as FutureOr<Map<dynamic, dynamic>>);
 
     return OkHttpResponse(
       code: result['code'],
@@ -92,7 +96,8 @@ class MethodChannelFlutterOkHttp implements FlutterOkHttpPlatform {
 
   @override
   Future<OkHttpResponse> put(OkHttpRequestWithPayload request) async {
-    final Map<dynamic, dynamic> result = await (_channel.invokeMethod('PUT', request.toMap()) as FutureOr<Map<dynamic, dynamic>>);
+    final Map<dynamic, dynamic> result = await (_channel.invokeMethod(
+        'PUT', request.toMap()) as FutureOr<Map<dynamic, dynamic>>);
 
     return OkHttpResponse(
       code: result['code'],
