@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/services.dart';
 import 'package:http/http.dart';
 
@@ -10,8 +12,8 @@ import 'okhttp_response.dart';
 const MethodChannel _channel = MethodChannel('tech.jgross.flutter_okhttp');
 
 class MethodChannelFlutterOkHttp implements FlutterOkHttpPlatform {
-  static Future<String> get platformVersion async {
-    final String version = await _channel.invokeMethod('getPlatformVersion');
+  static Future<String?> get platformVersion async {
+    final String? version = await _channel.invokeMethod('getPlatformVersion');
     return version;
   }
 
@@ -42,7 +44,7 @@ class MethodChannelFlutterOkHttp implements FlutterOkHttpPlatform {
 
   @override
   Future<OkHttpResponse> get(OkHttpRequest request) async {
-    final Map<dynamic, dynamic> result = await _channel.invokeMethod('GET', request.toMap());
+    final Map<dynamic, dynamic> result = await (_channel.invokeMethod('GET', request.toMap()) as FutureOr<Map<dynamic, dynamic>>);
 
     return OkHttpResponse(
       code: result['code'],
@@ -54,7 +56,7 @@ class MethodChannelFlutterOkHttp implements FlutterOkHttpPlatform {
 
   @override
   Future<OkHttpResponse> post(OkHttpRequestWithPayload request) async {
-    final Map<dynamic, dynamic> result = await _channel.invokeMethod('POST', request.toMap());
+    final Map<dynamic, dynamic> result = await (_channel.invokeMethod('POST', request.toMap()) as FutureOr<Map<dynamic, dynamic>>);
 
     return OkHttpResponse(
       code: result['code'],
@@ -66,7 +68,7 @@ class MethodChannelFlutterOkHttp implements FlutterOkHttpPlatform {
 
   @override
   Future<OkHttpResponse> delete(OkHttpRequest request) async {
-    final Map<dynamic, dynamic> result = await _channel.invokeMethod('DEL', request.toMap());
+    final Map<dynamic, dynamic> result = await (_channel.invokeMethod('DEL', request.toMap()) as FutureOr<Map<dynamic, dynamic>>);
 
     return OkHttpResponse(
       code: result['code'],
@@ -78,7 +80,7 @@ class MethodChannelFlutterOkHttp implements FlutterOkHttpPlatform {
 
   @override
   Future<OkHttpResponse> patch(OkHttpRequestWithPayload request) async {
-    final Map<dynamic, dynamic> result = await _channel.invokeMethod('PATCH', request.toMap());
+    final Map<dynamic, dynamic> result = await (_channel.invokeMethod('PATCH', request.toMap()) as FutureOr<Map<dynamic, dynamic>>);
 
     return OkHttpResponse(
       code: result['code'],
@@ -90,7 +92,7 @@ class MethodChannelFlutterOkHttp implements FlutterOkHttpPlatform {
 
   @override
   Future<OkHttpResponse> put(OkHttpRequestWithPayload request) async {
-    final Map<dynamic, dynamic> result = await _channel.invokeMethod('PUT', request.toMap());
+    final Map<dynamic, dynamic> result = await (_channel.invokeMethod('PUT', request.toMap()) as FutureOr<Map<dynamic, dynamic>>);
 
     return OkHttpResponse(
       code: result['code'],

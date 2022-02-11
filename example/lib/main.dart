@@ -7,6 +7,7 @@ import 'package:flutter_okhttp/ok_retry_http_client.dart';
 import 'package:http/http.dart' as http;
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
