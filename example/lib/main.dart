@@ -7,6 +7,7 @@ import 'package:flutter_okhttp/ok_retry_http_client.dart';
 import 'package:http/http.dart' as http;
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
@@ -16,7 +17,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+  String? _platformVersion = 'Unknown';
   String _messageToUser = '';
 
   @override
@@ -27,7 +28,7 @@ class _MyAppState extends State<MyApp> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
-    String platformVersion = '';
+    String? platformVersion = '';
     String messageToUser = '';
 
     // Platform messages may fail, so we use a try/catch PlatformException.

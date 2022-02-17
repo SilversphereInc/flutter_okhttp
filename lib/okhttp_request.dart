@@ -1,9 +1,9 @@
 import 'mappable.dart';
 
 class OkHttpRequest implements Mappable {
-  final String requestId;
-  final String url;
-  final Map<String, String> headers;
+  final String? requestId;
+  final String? url;
+  final Map<String, String>? headers;
 
   const OkHttpRequest({
     this.requestId,
